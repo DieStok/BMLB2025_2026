@@ -10,7 +10,7 @@ The 2025 version of the two-week Basic Machine Learning for Bioinformatics cours
 * Day 6: Working with scikit-learn, introduction to Keras and TensorFlow, project introduction and start
 
 # Dependencies and running the practicals.
-The material assumes a local installation of Anaconda, including the packages `numpy`, `scipy`, `pandas`, `sklearn`, `biopython`, `pandas-plink`, `tensorflow`, `notebook`, `matplotlib`, and `seaborn`.
+The material assumes a local installation of Anaconda, including the packages `numpy`, `scipy`, `pandas`, `sklearn`, `biopython`, `pandas-plink`, `torch`, `notebook`, `matplotlib`, and `seaborn`.
 
 # More information
 For more information and resources, read the [course reader](CourseReaderMLBasics2024.pdf).
