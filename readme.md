@@ -1,5 +1,5 @@
-# BMLB2024
-The 2024 version of the two-week Basic Machine Learning for Bioinformatics course taught at the University of Utrecht.
+# BMLB2025
+The 2025 version of the two-week Basic Machine Learning for Bioinformatics course taught at the University of Utrecht.
 
 # Topics covered per day (lectures and practicals)
 * Day 1: Linear regression, gradient descent, introduction to linear algebra
