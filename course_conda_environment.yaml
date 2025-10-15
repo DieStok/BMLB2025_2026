@@ -1,0 +1,34 @@
+name: BMLB2025_2026
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+
+  # Core scientific stack
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - statsmodels
+
+  # Viz & notebooks
+  - matplotlib
+  - seaborn
+  - jupyterlab
+  - ipykernel
+
+  # ML libraries
+  - keras>=3
+  - imbalanced-learn
+
+  # Utilities
+  - tqdm
+
+  # Experiment tracking
+  - mlflow
+
+  # Pip-only packages (PyTorch)
+  - pip:
+      - torch
+      - torchvision
