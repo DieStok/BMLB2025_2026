@@ -82,3 +82,74 @@
 - Can modify the gradient descent function to work for linear regression with any amount of parameters
 
 - Can optimize the parameters of a multivariate linear regression using gradient descent. 
+
+## <lecture_3> 🎓
+
+- Can explain why we use linear algebra to run ML algorithms (fast, parallel calculations)
+- Can explain that deep learning, especially, is just a bunch of matrix multiplications in a trenchcoat [relevant xkcd](https://xkcd.com/1838) (note: this becomes more clear on day 3)
+- Can add vectors and matrices together
+- Can perform scalar multiplication of vectors and matrices
+- Can transpose vectors and matrices
+- Can perform matrix-vector and matrix-matrix multiplication
+- Knows when two matrices can be multiplied together and what the shape of the result is (e.g. $5 \times 3$ matrix times $3 \times 1$ matrix can be multiplied, yields $5 \times 1$ vector). So: number of columns in matrix $A$ matches number of rows in matrix $B$.
+  - **Small example matrix-vector multiplication**
+    (if this does not render for you in markdown, no worries. It's just an example of what you should be able to do.)
+    Let
+
+    $$
+    A =
+    \begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & -1 & 4 \\
+    2 & 0 & 1 \\
+    -3 & 5 & 2 \\
+    4 & 1 & -2
+    \end{bmatrix} \in \mathbb{R}^{5\times 3},
+    \quad
+    \mathbf{x} =
+    \begin{bmatrix}
+    1\\
+    2\\
+    -1
+    \end{bmatrix}\in \mathbb{R}^{3\times 1}.
+    $$
+
+    Then $A\mathbf{x}\in \mathbb{R}^{5\times 1}$ is
+
+    $$A\mathbf{x} =
+    \begin{bmatrix}
+    1\cdot 1 + 2\cdot 2 + 3\cdot(-1) \\
+    0\cdot 1 + (-1)\cdot 2 + 4\cdot(-1) \\
+    2\cdot 1 + 0\cdot 2 + 1\cdot(-1) \\
+    (-3)\cdot 1 + 5\cdot 2 + 2\cdot(-1) \\
+    4\cdot 1 + 1\cdot 2 + (-2)\cdot(-1)
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 + 4 - 3 \\
+    0 - 2 - 4 \\
+    2 + 0 - 1 \\
+    -3 + 10 - 2 \\
+    4 + 2 + 2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    2\\
+    -6\\
+    1\\
+    5\\
+    8
+    \end{bmatrix}.
+    $$
+- Can explain what it means that matrix-matrix multiplication is non-commutative
+- Can explain how we can cast multivariate linear regression as a matrix vector multiplication.
+- Can perform this multiplication.
+
+## <computer_lab_3> 💻
+
+- Can explain what's happening when 9-fold cross-validation is applied to polynomial linear regression.
+- Can do simple linear algebra multiplications by hand using pen and paper
+- Can check the answers of the above using numpy matrix multiplication functionality
+- Can implement the linear regression hypothesis function for any number of features/parameters using linear algebra and numpy
+- Can implement the mean-squared error function using linear algebra and numpy
+- Can implement the gradient descent function using linear algebra and numpy
