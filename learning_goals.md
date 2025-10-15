@@ -19,10 +19,10 @@
 - Can explain that taking the partial derivative of a function just means treating all parameters except the one you are taking the partial derivative of as numbers, thereby getting only the slope of the function w.r.t. that parameter.
 - Can calculate partial derivatives of univariate/multivariate linear regression cost function.
 - Can use the chain rule to calculate partial derivatives. For instance, for MSE: partial derivative of \(\frac{1}{2m}\sum_{i=1}^{m}\big(\theta_{0} + \theta_{1}\cdot x^{(i)} - y_{\text{real}}^{(i)}\big)^2\) with respect to \(\theta_{0}\) = derivative of \(x^2\) \(\rightarrow\) \(2x\) \(\times\) derivative of \(\theta_{0} + \theta_{1}\cdot x^{(i)} - y_{\text{real}}^{(i)}\) w.r.t. \(\theta_{0}\) which is just \(x^{1}\) \(\rightarrow\) \(1 \times x^{0} = 1 \times 1 = 1\). So it just comes down to \(\frac{1}{m}\sum_{i=1}^{m}\big(\theta_{0} + \theta_{1}\cdot x^{(i)} - y_{\text{real}}^{(i)}\big)\).
-- Can describe that alpha or eta is a hyperparameter that governs the size of the steps you take in gradient descent.
+- Can describe that $\alpha$ or $\eta$ is a hyperparameter that governs the size of the steps you take in gradient descent.
 - Can describe that hyperparameters are not optimized by the ML training algorithm but need to be picked beforehand to train the ML algorithm. 
 
-## <coding lab_1> 💻
+## <coding_lab_1> 💻
 
 - Can implement the MSE function for univariate linear regression in Python code themselves
 - Explain what the 3D surface plot of the univariate linear regression cost function means
