@@ -29,3 +29,56 @@
 - Can implement the gradient descent function for univariate linear regression themselves
 - Explain what a contour plot of a cost function shows
 - Can explain that since \(\theta_{1}\)'s partial derivative is multiplied with the feature value while \(\theta_{0}\)'s is not, normalizing the feature values allows gradient descent to take more equal steps.
+
+## <lecture_2> 🎓
+
+- Can explain how to extend univariate regression to multidimensional regression (e.g. \(\theta_{0} + \theta_{1} \cdot x_{1}^{(i)} + \theta_{2} \cdot x_{2}^{(i)}\))
+  - More generally, for \(n\) features: \(\hat{y}^{(i)} = \theta_{0} + \sum_{j=1}^{n} \theta_{j} \cdot x_{j}^{(i)}\).
+
+- Can write down the partial derivatives of multivariate regression  
+  - With cost \(J(\boldsymbol{\theta}) = \frac{1}{2m}\sum_{i=1}^{m}\big(\hat{y}^{(i)} - y_{\text{real}}^{(i)}\big)^2\), where \(\hat{y}^{(i)} = \theta_{0} + \sum_{j=1}^{n}\theta_{j} x_{j}^{(i)}\):
+    - \(\displaystyle \frac{\partial J}{\partial \theta_{0}} = \frac{1}{m}\sum_{i=1}^{m}\big(\hat{y}^{(i)} - y_{\text{real}}^{(i)}\big)\)
+    - \(\displaystyle \frac{\partial J}{\partial \theta_{j}} = \frac{1}{m}\sum_{i=1}^{m}\big(\hat{y}^{(i)} - y_{\text{real}}^{(i)}\big)\,x_{j}^{(i)} \quad \text{for } j=1,\dots,n\)
+
+- Can explain how to fit more complex functions (power functions/polynomials) by simply raising input features to some power and fitting multivariate regression to these modified features
+
+- Can explain why standardizing features (bringing them to the same scale) makes sure gradient descent converges well (similar step size in all partial derivatives)
+
+- Can explain that the goal of ML is not to fit the training data perfectly, but rather to use the training data to learn a function that generalises well to unseen examples
+
+- Can explain the difference between underfitting, overfitting, and a good (enough) fit.
+
+- Can explain and draw a fit with high variance: overfit/varies a lot if input data changes slightly
+
+- Can explain and draw a fit with high bias: underfit/can't fit the data well due to insufficient expressivity or too strict assumptions (e.g. the bias that a function is linear while it is quadratic)
+
+- Can explain how to estimate how well the model will generalise (train-validation-test split; learning curves; regularisation)
+
+- Can explain exactly how k-fold cross-validation is done in practice
+
+- Can explain why k-fold cross-validation is prefered over a single train-validation-test split
+
+- Can explain what you would do after you are sure your model generalises well (train a final model on all training data, since usually model performance improves with training data set size; you only do the cross-validation to test whether your model will perform well on unseen data, afterwards train the best model you can)
+
+- Can explain how learning curves are constructed by training models on different downsamplings of the data.
+
+- Can explain what differentiates a learning curve of a model that has high bias from one with high variance
+
+- Can draw learning curves for a high bias and high variance scenario. 
+
+- Can explain that in the case of high variance, adding more training data usually works and makes the model better
+
+
+## <coding_lab_2> 💻
+
+- Can add some polynomial features to fit more complex regressions
+
+- Can explain how scaling to a Z-score differs from scaling to a set range (range scaling, e.g. to between \([-1, 1]\))
+  - Z-score: \(x' = \dfrac{x - \mu}{\sigma}\)
+  - Range scaling to \([a,b]\): \(x' = a + \dfrac{(x - x_{\min})}{(x_{\max} - x_{\min})}\,(b-a)\)
+
+- Can program a multivariate/multi-variable linear regression function in Python that works for any amount of parameters
+
+- Can modify the gradient descent function to work for linear regression with any amount of parameters
+
+- Can optimize the parameters of a multivariate linear regression using gradient descent. 
