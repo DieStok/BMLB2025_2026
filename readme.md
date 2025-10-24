@@ -1,5 +1,5 @@
-# BMLB2025
-The 2025 version of the two-week Basic Machine Learning for Bioinformatics course taught at the University of Utrecht.
+# BMLB 2025-2026
+The 2025-2026 version of the two-week Basic Machine Learning for Bioinformatics course taught at the University of Utrecht.
 
 # Topics covered per day (lectures and practicals)
 * Day 1: Linear regression, gradient descent, introduction to linear algebra
@@ -25,7 +25,7 @@ Open a terminal and run:
 git clone https://github.com/DieStok/BMLB2025_2026.git
 cd BMLB2025_2026
 ```
-If you don't know how to do this, check the [course reader](CourseReaderMLBasics2025.pdf) (:
+If you don't know how to do this, check the [course reader](CourseReaderMLBasics2025_2026.pdf) (:
 
 ---
 
@@ -118,7 +118,7 @@ git stash pop
 ```
 
 # More information
-For more information and resources, read the [course reader](CourseReaderMLBasics2025.pdf).
+For more information and resources, read the [course reader](CourseReaderMLBasics2025_2026.pdf).
 
 # Words of thanks
 Greatly inspired by/based on [Andrew Ng's course on Coursera](https://www.coursera.org/learn/machine-learning/home/welcome). The PCA part is based on [Prof. Victor Lavrenko's excellent lecture series](https://www.youtube.com/watch?v=IbE0tbjy6JQ&list=PLBv09BD7ez_5_yapAg86Od6JeeypkS4YM). Many thanks are owed to [Dr. Jeroen de Ridder](https://www.umcutrecht.nl/en/research/researchers/de-ridder-jeroen-j) for expert assistance. I thank [Dr. ir. Bas van Breukelen](https://www.uu.nl/staff/BvanBreukelen) for long-term assistance and [Prof. Dr. Berend Snel](https://tbb.bio.uu.nl/snel/group.html) for comments on the phylogenetics part. Any errors remain my own (and, with your help, will hopefully be noticed and rectified soon).
