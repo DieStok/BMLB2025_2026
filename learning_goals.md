@@ -22,7 +22,7 @@
 - Can describe that $\alpha$ or $\eta$ is a hyperparameter that governs the size of the steps you take in gradient descent.
 - Can describe that hyperparameters are not optimized by the ML training algorithm but need to be picked beforehand to train the ML algorithm. 
 
-## <coding_lab_1> 💻
+## <coding_lab_1 (Day 1 short 1)> 💻
 
 - Can implement the MSE function for univariate linear regression in Python code themselves
 - Explain what the 3D surface plot of the univariate linear regression cost function means
@@ -69,7 +69,7 @@
 - Can explain that in the case of high variance, adding more training data usually works and makes the model better
 
 
-## <coding_lab_2> 💻
+## <coding_lab_2 (Day 1 short 2)> 💻
 
 - Can add some polynomial features to fit more complex regressions
 
@@ -145,7 +145,7 @@
 - Can explain how we can cast multivariate linear regression as a matrix vector multiplication.
 - Can perform this multiplication.
 
-## <computer_lab_3> 💻
+## <computer_lab_3 (Day 1 afternoon)> 💻
 
 - Can explain what's happening when 9-fold cross-validation is applied to polynomial linear regression.
 - Can do simple linear algebra multiplications by hand using pen and paper
@@ -153,3 +153,84 @@
 - Can implement the linear regression hypothesis function for any number of features/parameters using linear algebra and numpy
 - Can implement the mean-squared error function using linear algebra and numpy
 - Can implement the gradient descent function using linear algebra and numpy
+
+
+# Day 2
+
+## <lecture_4> 🎓 
+
+- Can explain why a linear-regression-then-threshold approach is problematic for classification (predictions can go below 0 or above 1; breaks on many datasets).
+- Can define logistic regression as using a sigmoid-transformed linear function for classification: \( h_\theta(x) = g(\theta^\top x) \) with \( g(z) = \frac{1}{1 + e^{-z}} \).
+- Can describe key properties of the sigmoid: approaches 0 as \( z \to -\infty \), approaches 1 as \( z \to \infty \), and equals 0.5 at \( z = 0 \).
+- Can interpret \( h_\theta(x) \) as a probability \( p(y=1 \mid x; \theta) \) and use \( p(y=0 \mid x; \theta) = 1 - h_\theta(x) \). Can connect this to log-odds.
+- Can work through a concrete linear decision boundary example (e.g., \( \theta = [-3, 1, 1] \Rightarrow x_1 + x_2 = 3 \)).
+- Can explain how adding polynomial features enables non-linear decision boundaries (e.g., using \( x_1^2, x_2^2 \) to form circular boundaries).
+- Can state why MSE is a poor cost for logistic regression (non-convex and low bandwidth) and explain the convex alternative.
+- Can write the logistic (cross-entropy) loss per example in both cases and the dataset-averaged objective:  
+  \[
+  \text{Cost}(x) =
+  \begin{cases}
+    -\log\big(h_\theta(x)\big) & \text{if } y=1,\\[2pt]
+    -\log\big(1 - h_\theta(x)\big) & \text{if } y=0,
+  \end{cases}
+  \quad
+  J(\theta)=\frac{1}{m}\sum_{i=1}^m \text{Cost}\big(x^{(i)}\big).
+  \]
+  \[
+  \text{Equivalent compact form: } \text{Cost}(x) = -\,y \log h_\theta(x) - (1-y)\log\big(1-h_\theta(x)\big).
+  \]
+- Can reason about the penalty behavior of the logistic loss (e.g., predicting 0 when \( y=1 \) drives cost to \(\infty\); MSE would penalize far less).
+- Can write the gradient of \( J(\theta) \) for logistic regression and explain its similarity to linear regression (same form with a different hypothesis):  
+  \[
+  \frac{\partial J}{\partial \theta_j}
+  = \frac{1}{m}\sum_{i=1}^m\big(h_\theta(x^{(i)}) - y^{(i)}\big)\,x_j^{(i)}.
+  \]
+- Can perform gradient descent parameter updates for all parameters \( \theta_j \):  
+  \[
+  \theta_j \leftarrow \theta_j - \alpha \cdot \frac{1}{m}\sum_{i=1}^m\big(h_\theta(x^{(i)}) - y^{(i)}\big)\,x_j^{(i)}.
+  \]
+
+## <computer_lab_4 (Day 2 short 1)> 💻
+
+- Can implement the sigmoid function
+- Can assign classification labels using a random threshold on a sigmoid plot
+- Can implement the logistic regression hypothesis function (just a sigmoid wrapper around the linear regression hypothesis function)
+- Can implement the logistic regression cost function
+- Can change a gradient descent implementation to use the logistic regression hypothesis and cost functions
+- Can explain why the decision function for 1D data following a sigmoid function approaches a sign function
+- Can create a basic plot to show the decision boundary of a logistic regression
+
+## <lecture_5> 🎓
+
+- Can explain one-vs-rest multiclass logistic regression: train \(k\) binary classifiers \(h_{\theta^{(i)}}(x)\) and predict \(\arg\max_i P(y=i\mid x;\theta^{(i)})\).
+- Can articulate why accuracy can be misleading (e.g., trivial always-positive predictor) and define TP, TN, FP, FN alongside sensitivity (TPR) and specificity (TNR).
+- Can adjust the decision threshold to favor sensitivity or specificity and explain the trade-off.
+- Can mechanistically explain the ROC curve (i.e. explain how it is built; TPR vs. FPR across thresholds)
+- Can explain how to compare classifiers using ROC AUC (0.5 random, 1.0 perfect).
+- Can explain why ROC AUC can be over-optimistic on imbalanced data and when to use the precision–recall AUC PRC instead; can define precision and recall.
+- Can write the L2-regularized objective (do not penalize \(\theta_0\)) and explain bias–variance effects (adds bias, reduces variance) for linear/logistic models.
+- Can identify hyperparameters (e.g., \(\lambda\) for regularization, \(\alpha\) for learning rate) and explain why simple CV model selection can leak validation information.
+- Can mechanistically explain nested cross-validation (outer folds for generalization estimate; inner folds for hyperparameter search) and its computational cost in full detail; can extend to multiple hyperparameters.
+
+## <computer_lab_5 (Day 2 short 2)> 💻
+
+- Can implement L2 regularization into the cost function calculation 
+- Can answer exploratory data analysis questions (specifically concerning NaNs and untrustworthy values) about a dataset
+- Can clean up data after pinpointing untrustworthy/unusable values
+- Can use K-NN imputation to impute missing values
+- Can implement regularised logistic regression training for multiple values of lambda (==strength of the regularisation; == strength of biasing towards small parameter values;)
+- Can implement and mechanistically understand the construction of an ROC curve (cycling through decision thresholds, making class predictions for each threshold, comparing this to the true labels, calculating TPR and FPR, plotting a point on the graph)
+
+## <lecture_6> 🎓
+- Can explain why we use neural networks (proven performance, no feature engineering, universal approximation theorem)
+- Can explain why computational neural networks are not truly like networks of neurons in brains at all
+- Can explain what a single neuron/unit calculates (weighted sum of its inputs + a bias, then passed through a nonlinear activation function)
+- Can explain a neural network diagram (input features, intermediate layers, outputs)
+- Can explain how to do a forward pass through a neural network with linear algebra
+- Knows that for multi-class neural network predictions the labels are now a one-hot vector, with 1 for the correct class, and 0 for all others. 
+
+## <computer_lab_6 (Day 2 afternoon)> 💻
+- Can implement multiclass logistic regression yourself
+- Can use the learned parameters to predict the most probable class on some unseen test data
+- Can implement nested-cross validation using scikit-learn
+- Can implement a basic feedforward pass through a neural network using matrix multiplications
