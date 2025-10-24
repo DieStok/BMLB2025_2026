@@ -222,12 +222,15 @@
 - Can implement and mechanistically understand the construction of an ROC curve (cycling through decision thresholds, making class predictions for each threshold, comparing this to the true labels, calculating TPR and FPR, plotting a point on the graph)
 
 ## <lecture_6> 🎓
+- Can explain what the idea of self-supervised learning is
 - Can explain why we use neural networks (proven performance, no feature engineering, universal approximation theorem)
 - Can explain why computational neural networks are not truly like networks of neurons in brains at all
 - Can explain what a single neuron/unit calculates (weighted sum of its inputs + a bias, then passed through a nonlinear activation function)
 - Can explain a neural network diagram (input features, intermediate layers, outputs)
 - Can explain how to do a forward pass through a neural network with linear algebra
 - Knows that for multi-class neural network predictions the labels are now a one-hot vector, with 1 for the correct class, and 0 for all others. 
+- Knows that simple fully-connected/Multi-Layer Perceptron (MLP) neural networks lack any *inductive biases*
+- Knows two ways in which structure can be added to neural networks: 'scanning' over images, working on a graph (such as a molecular graph)
 
 ## <computer_lab_6 (Day 2 afternoon)> 💻
 - Can implement multiclass logistic regression yourself
