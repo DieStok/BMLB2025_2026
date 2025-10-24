@@ -3,3 +3,7 @@ Old/
 */.ipynb_checkpoints/*
 TODO.md
 *.pptx
+*.odt
+.ipynb_checkpoints
+*.swp
+.~lock*

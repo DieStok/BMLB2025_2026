@@ -17,6 +17,7 @@ dependencies:
   - seaborn
   - jupyterlab
   - ipykernel
+  - ipyml
 
   # ML libraries
   - keras>=3
