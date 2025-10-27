@@ -7,3 +7,4 @@ TODO.md
 .ipynb_checkpoints
 *.swp
 .~lock*
+*.pyc
