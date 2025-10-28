@@ -8,3 +8,4 @@ TODO.md
 *.swp
 .~lock*
 *.pyc
+*__pycache__
