@@ -49,9 +49,25 @@ Activate the environment:
 conda activate BMLB2025_2026
 ```
 
+# *NOTE: you should always activate the environment before launching jupyter lab!*
+In your terminal this should look like:
+
+```bash
+(course conda environment name) whatever_else_your_terminal_puts
+#example for me:
+(BMBL2025_2026) (ARM64) dstoker@MA014385 % 
+```
 ---
 
-## 4) Register the Jupyter kernel
+## 4) Activate nbdev to remove merge conflicts when updating notebooks:
+
+```bash
+nbdev_install_hooks
+```
+
+---
+
+## 5) Register the Jupyter kernel
 
 This allows you to select the environment as a kernel inside JupyterLab or Jupyter Notebook:
 
@@ -61,35 +77,15 @@ python -m ipykernel install --user --name BMLB2025_2026 --display-name "Python (
 
 ---
 
-## 5) Launch JupyterLab
+## 6) Launch JupyterLab
 
 ```bash
+#make sure to activate conda beforehand!
 jupyter lab
 ```
 
 In the launcher, select the kernel **“Python (BMLB2025_2026)”**.
 
----
-
-## 6) Quick verification (optional)
-
-Run the following snippet to verify your installation:
-
-```bash
-python - <<'PY'
-import numpy, pandas, sklearn, statsmodels.api as sm, matplotlib, seaborn, mlflow
-import torch, torchvision
-print("NumPy:", numpy.__version__)
-print("Pandas:", pandas.__version__)
-print("scikit-learn:", sklearn.__version__)
-print("statsmodels:", sm.__version__)
-print("Matplotlib:", matplotlib.__version__)
-print("Seaborn:", seaborn.__version__)
-print("MLflow:", mlflow.__version__)
-print("Torch:", torch.__version__, "| torchvision:", torchvision.__version__)
-print("CUDA available:", torch.cuda.is_available())
-PY
-```
 
 > **Note:** PyTorch installed via `pip` in this environment is **CPU-only** by default. GPU support is **not required** for this course.
 

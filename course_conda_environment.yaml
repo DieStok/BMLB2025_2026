@@ -37,8 +37,3 @@ dependencies:
   - pip:
       - torch
       - torchvision
-
-# Automatically enable nbdev merge hooks on environment creation
-# This ensures that Jupyter notebook merges are handled cleanly using nbdev
-postBuild:
-  - nbdev_install_hooks
