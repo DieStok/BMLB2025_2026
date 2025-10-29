@@ -29,7 +29,16 @@ dependencies:
   # Experiment tracking
   - mlflow
 
+  # For smarter notebook merge handling
+  - nbdev>=2.3.0
+  - gitpython
+
   # Pip-only packages (PyTorch)
   - pip:
       - torch
       - torchvision
+
+# Automatically enable nbdev merge hooks on environment creation
+# This ensures that Jupyter notebook merges are handled cleanly using nbdev
+postBuild:
+  - nbdev_install_hooks
