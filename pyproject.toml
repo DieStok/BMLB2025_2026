@@ -1,0 +1,51 @@
+[project]
+name = "BMLB2025_2026"
+version = "0.1"
+description = "Course environment for BMLB 2025/2026"
+requires-python = ">=3.11,<3.12"
+
+
+dependencies = [
+  # Core scientific stack
+  "numpy",
+  "scipy",
+  "pandas",
+  "scikit-learn",
+  "statsmodels",
+
+  # Viz & notebooks
+  "matplotlib",
+  "seaborn",
+  "jupyterlab",
+  "ipykernel",
+  "ipympl",
+
+  # ML libraries
+  "keras>=3",
+  "imbalanced-learn",
+
+  # Utilities
+  "tqdm",
+
+  # Experiment tracking
+  "mlflow",
+
+  # Notebook cleaning / merge friendliness
+  "nbdev>=2.3.0",
+  "gitpython",
+
+  # Pip-only packages (PyTorch, default CPU wheels)
+  "torch",
+  "torchvision",
+]
+
+[tool.uv]
+# Create a project-local virtual environment in .venv by default (nice for students)
+default-groups = []
+
+[tool.uv.dependency-groups]
+# Optional tools for testing and pre-commit hooks
+dev = [
+  "pre-commit",
+  "pytest",
+]
