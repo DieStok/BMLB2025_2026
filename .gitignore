@@ -1,11 +1,22 @@
-Old/
+#swap and Mac
+*.swp
+.~lock*
 .DS_Store
+
+# uv / venv
+.venv/
+.uv_cache/
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
 */.ipynb_checkpoints/*
+.ipynb_checkpoints
+
+#not shared
 TODO.md
 *.pptx
 *.odt
-.ipynb_checkpoints
-*.swp
-.~lock*
-*.pyc
-*__pycache__
+Old/
