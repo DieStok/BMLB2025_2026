@@ -272,4 +272,180 @@ This is a completely delineated list of all content covered in the lectures and 
 - Implement nested cross-validation using scikit-learn
 - Implement a basic feedforward neural network using linear algebra
 
+# Day 3
 
+## <lecture_7> 🎓
+
+- Explain the idea of backpropagation: taking the cost from the output layer, through long chained partial derivatives, to get the gradients w.r.t the cost for all parameters.
+- Explain that there's three core quantities to know per neuron: how the cost depends on its bias, its weights, and the activations it got from the previous layer.
+- Write down the steps required (i.e. chained partial derivatives) to calculate the partial derivative of the cost w.r.t a certain parameter. 
+- Write down the analytical equations that belong to a sequence of partial derivatives. e.g. 
+  $$
+  \frac{\partial C}{\partial b^{(l)}_j} = \frac{\partial C}{\partial a^{(l)}_j} \cdot \frac{\partial a^{(l)}_j}{\partial z^{(l)}_j} \cdot \frac{\partial z^{(l)}_j}{\partial b^{(l)}_j} = \delta^{(l)}_j \cdot \frac{\partial z^{(l)}_j}{\partial b^{(l)}_j}
+  $$
+- For instance, for mean-squared error, write out the full chain for the output layer bias:
+
+  $$
+  C = \frac{1}{2}(y - a^{(L)})^2
+  $$
+  $$
+  \frac{\partial C}{\partial b^{(L)}} = \frac{\partial C}{\partial a^{(L)}} \cdot \frac{\partial a^{(L)}}{\partial z^{(L)}} \cdot \frac{\partial z^{(L)}}{\partial b^{(L)}}
+  $$
+  Where:
+  $$
+  \frac{\partial C}{\partial a^{(L)}} = -(y - a^{(L)})
+  $$
+  $$
+  \frac{\partial a^{(L)}}{\partial z^{(L)}} = \sigma'(z^{(L)})
+  $$
+  $$
+  \frac{\partial z^{(L)}}{\partial b^{(L)}} = 1
+  $$
+  So:
+  $$
+  \frac{\partial C}{\partial b^{(L)}} = -(y - a^{(L)}) \cdot \sigma'(z^{(L)})
+  $$
+  (where $\sigma$ is the activation function, e.g. sigmoid here)
+
+---
+
+## <coding_lab_7 (Day 3 short 1)> 💻
+
+- Explain how backpropagation works
+
+---
+
+## <lecture_8> 🎓
+
+- Explain why convolutional neural networks make sense for images
+- Explain how convolutions work (weighted sums that move over a sequence)
+- Explain what stride, filter size, and the number of kernels/filters are
+- Explain how you can use convolutions for a DNA sequence
+
+---
+
+## <coding_lab_8 (Day 3 short 2)> 💻
+
+- Implement the cross-entropy cost function for a neural network, including regularisation
+- Implement numerical gradient checking (brute-forcing the gradient calculation)
+- Know the derivative of the sigmoid function: $\sigma{something} \dot (1-\sigma{something})$
+
+
+---
+
+## <computer_lab_9 (Day 3 afternoon)> 💻
+
+- Understand in-depth how backpropagation works
+- Can implement backpropagation in linear algebra (note: not on exam!)
+
+---
+
+# Day 4
+
+## <lecture_10> 🎓
+
+- Explain that clustering is only possible with some (implicit) inductive bias on what is important
+- Explain that you always check whether your clustering makes sense in the light of external data/knowledge (e.g. known gene activities for subtypes, or known disease entities)
+- Explain how different distance metrics change what you consider close
+- Explain exactly how K-means clustering works (initialization, iterative cluster centroid and cluster assignment refinement, final cost). Can write detailed pseudocode for this.
+- Know that K-means clustering is initialization-dependent and so needs to be run multiple times
+- Know that each clustering has a global cost (the distortion, or average average square distance to the mean of each cluster for each point in that cluster)
+
+---
+
+## <coding_lab_10 (Day 4 short 1)> 💻
+
+- Can implement K-means clustering and select the best clustering using the distortion.
+
+---
+
+## <lecture_11> 🎓
+
+- Understand exactly how hierarchical clustering works
+- Know what a linkage criterion is and what each of the (single, average, complete) linkage criterions implicitly assumes about cluster structure
+- Understand that since you calculate all-all distances this can be prohibitive for large datasets.
+- Can explain a little about graph clustering for single-cell datasets.
+
+---
+
+## <coding_lab_11 (Day 4 short 2)> 💻
+
+- Implement complete and single linkage criteria
+- Cut hierarchical clustering at different levels.
+- Compare hierarchical and K-means clustering
+
+---
+
+# Day 5
+
+## <lecture_13> 🎓
+
+- 
+
+---
+
+## <coding_lab_13 (Day 5 short 1)> 💻
+
+- 
+
+---
+
+## <lecture_14> 🎓
+
+- 
+
+---
+
+## <coding_lab_14 (Day 5 short 2)> 💻
+
+- 
+
+---
+
+## <lecture_15> 🎓
+
+- 
+
+---
+
+## <computer_lab_15 (Day 5 afternoon)> 💻
+
+- 
+
+---
+
+# Day 6
+
+## <lecture_16> 🎓
+
+- 
+
+---
+
+## <coding_lab_16 (Day 6 short 1)> 💻
+
+- 
+
+---
+
+## <lecture_17> 🎓
+
+- 
+
+---
+
+## <coding_lab_17 (Day 6 short 2)> 💻
+
+- 
+
+---
+
+## <lecture_18> 🎓
+
+- 
+
+---
+
+## <computer_lab_18 (Day 6 afternoon)> 💻
+
+- 
