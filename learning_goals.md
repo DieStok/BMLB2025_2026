@@ -200,7 +200,7 @@ This is a completely delineated list of all content covered in the lectures and 
   J(\theta)=\frac{1}{m}\sum_{i=1}^m[-y\log h_\theta(x^{(i)}) - (1-y)\log(1-h_\theta(x^{(i)}))]
   $$
 
-- Gradient of $J(\theta)$:
+- Gradient of $J(\theta)$ (!Note: unchanged save for sigmoid in hypothesis function!):
 
   $$
   \frac{\partial J}{\partial \theta_j}
@@ -232,7 +232,8 @@ This is a completely delineated list of all content covered in the lectures and 
 
 - Define TP, TN, FP, FN; sensitivity (TPR) and specificity (TNR)  
 - Explain threshold trade-offs, ROC curves, and AUC  
-- Explain precision–recall and when to prefer PRC  
+- Explain precision–recall and when to prefer PRC (when you only value the positive/minority class)
+- Discuss how performance metrics interact with biology and are used in reality: think cross-validation *across chromosomes*, stratifying by the distance genome bins are apart, etc.
 - Write L2-regularized objective (excluding $\theta_0$):
 
   $$
@@ -240,7 +241,8 @@ This is a completely delineated list of all content covered in the lectures and 
   $$
 
 - Explain bias–variance effects  
-- Explain nested cross-validation (outer folds for generalization, inner for hyperparameter search)  
+- Explain nested cross-validation (outer folds for generalization, inner for hyperparameter search)
+- Know that for your final classifier you use the hyperparameters that were picked most often, or the average of those picked for the outer folds.  
 
 ---
 
@@ -256,9 +258,9 @@ This is a completely delineated list of all content covered in the lectures and 
 ## <lecture_6> 🎓
 
 - Explain self-supervised learning  
-- Explain neural networks and single neurons  
+- Explain what neural networks and single neurons do 
 - Explain forward pass via linear algebra  
-- Explain one-hot encoding for multiclass  
+- Explain one-hot encoding for multiclass NNs
 - Explain lack of inductive bias in MLPs and how CNNs/GNNs add it  
 
 ---
@@ -267,5 +269,7 @@ This is a completely delineated list of all content covered in the lectures and 
 
 - Implement multiclass logistic regression  
 - Predict test labels  
-- Implement nested cross-validation  
-- Implement a basic feedforward neural network
+- Implement nested cross-validation using scikit-learn
+- Implement a basic feedforward neural network using linear algebra
+
+
