@@ -462,3 +462,10 @@ This is a completely delineated list of all content covered in the lectures and 
 
 ---
 
+# Project
+
+- Produce in-depth (pseudo)code to make scikit-learn pipelines
+- Implement nested cross-validation for scikit-learn
+- Explain how a Random Forest works
+- Independently perform an extra step of model tuning
+
