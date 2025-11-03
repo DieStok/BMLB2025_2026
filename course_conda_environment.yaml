@@ -18,10 +18,12 @@ dependencies:
   - jupyterlab
   - ipykernel
   - ipympl
+  - pydot
 
   # ML libraries
   - keras>=3
   - imbalanced-learn
+  - scikeras
 
   # Utilities
   - tqdm
