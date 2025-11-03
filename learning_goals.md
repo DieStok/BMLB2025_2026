@@ -342,7 +342,7 @@ This is a completely delineated list of all content covered in the lectures and 
 
 # Day 4
 
-## <lecture_10> 🎓
+## <lecture_9> 🎓
 
 - Explain that clustering is only possible with some (implicit) inductive bias on what is important
 - Explain that you always check whether your clustering makes sense in the light of external data/knowledge (e.g. known gene activities for subtypes, or known disease entities)
@@ -359,7 +359,7 @@ This is a completely delineated list of all content covered in the lectures and 
 
 ---
 
-## <lecture_11> 🎓
+## <lecture_10> 🎓
 
 - Understand exactly how hierarchical clustering works
 - Know what a linkage criterion is and what each of the (single, average, complete) linkage criterions implicitly assumes about cluster structure
@@ -378,74 +378,87 @@ This is a completely delineated list of all content covered in the lectures and 
 
 # Day 5
 
-## <lecture_13> 🎓
+## <lecture_11> 🎓
 
-- 
-
----
-
-## <coding_lab_13 (Day 5 short 1)> 💻
-
-- 
+- Explain why high-dimensional data poses problems for supervised and unsupervised machine learning
+- Explain how filtering and wrapping work for feature selection
+- Explain the difference between non-linear and linear dimensionality reduction.
+- Explain the difference between extrinsic and intrinsic dimensionality
 
 ---
 
-## <lecture_14> 🎓
+## <coding_lab_12 (Day 5 short 1)> 💻
 
-- 
-
----
-
-## <coding_lab_14 (Day 5 short 2)> 💻
-
-- 
+- Implement classification with ever more noise features
+- Implement distance calculations in high-dimensional spaces to see that they become meaningless
 
 ---
 
-## <lecture_15> 🎓
+## <lecture_12> 🎓
 
-- 
+- Explain exactly how PCA works, step by step:
+  - Can explain what a covariance matrix captures
+  - Can explain that we want to maximize the variance on each component
+  - Can explain that it turns out this is an eigenvector-eigenvalue problem
+  - Can explain that we can search for vectors that we need using the identity matrix and the fact that the determinant is 0 and solving for the eigenvalues
+  - Can explain that we find vectors that satisfy the equations for the eigenvalues we found
+  - Can explain that we limit them to unit length to get unique solutions.
+  - Can explain that the percentage of variance captured on each component is the eigenvalue divided by the sum of all eigenvalues
+  - Can explain how to project data onto the new axes through the data
+  - Can explain how to finally perform dimension reduction by cutting of n dimensions such that you keep x% of total variance in the data
 
 ---
 
-## <computer_lab_15 (Day 5 afternoon)> 💻
+## <coding_lab_13 (Day 5 short 2)> 💻
 
-- 
+- Can implement PCA yourself (using the covariance matrix and np.eig())
+
+
+
+---
+
+## <coding_lab_14 (Day 5 afternoon)> 💻
+
+*!Not on the exam this year!*
+- Use K-means clustering for dimension reduction
+- Apply PCA to some actual datasets
+- Use PCA to filter out shared ancestry as a confounder in SNP analysis
 
 ---
 
 # Day 6
 
+## <lecture_15> 🎓
+
+- Explain how scikit-learn fitting, predicting, and calculating performance metrics work
+- Explain how to do nested cross-validation with scikit-learn
+- Explain why one-hot encoding of categorical features is useful/required
+- Explain how to use pipelines in scikit-learn and why they are useful
+
+---
+
+## <coding_lab_15 (Day 6 short 1)> 💻
+
+- Implement scikit-learn classifiers yourself
+- Implement nested cross-validation in scikit-learn
+- Implement a pipeline in scikit-learn
+
+---
+
 ## <lecture_16> 🎓
 
-- 
-
----
-
-## <coding_lab_16 (Day 6 short 1)> 💻
-
-- 
-
----
-
-## <lecture_17> 🎓
-
-- 
+- Explain how to build a model in Keras
+- Explain what the softmax function does
+- Know that you can wrap keras models as scikit-learn objects and use them in pipelines
+- Explain that in practice you use the weights of the neural network that perform best on the validation set (i.e. you don't train for a set number of epochs)
 
 ---
 
 ## <coding_lab_17 (Day 6 short 2)> 💻
 
-- 
+- Implement simple neural network training in Keras
+- Implement a convolutional neural network in Keras
+- Know how to wrap a keras model for use with scikit-learn hyperparameter estimation
 
 ---
 
-## <lecture_18> 🎓
-
-- 
-
----
-
-## <computer_lab_18 (Day 6 afternoon)> 💻
-
-- 
