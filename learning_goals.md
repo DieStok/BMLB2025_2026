@@ -328,7 +328,7 @@ This is a completely delineated list of all content covered in the lectures and 
 
 - Implement the cross-entropy cost function for a neural network, including regularisation
 - Implement numerical gradient checking (brute-forcing the gradient calculation)
-- Know the derivative of the sigmoid function: $\sigma{something} \dot (1-\sigma{something})$
+- Know the derivative of the sigmoid function: $\sigma{something} \cdot (1-\sigma{something})$
 
 
 ---
