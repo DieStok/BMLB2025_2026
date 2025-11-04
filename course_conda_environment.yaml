@@ -38,6 +38,7 @@ dependencies:
   # Automate markdown to pdf rendering
   - pandoc
   - tectonic
+  - pre-commit
 
   # Pip-only packages (PyTorch)
   - pip:
