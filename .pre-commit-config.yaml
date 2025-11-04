@@ -16,7 +16,8 @@ repos:
       # Build learning_goals.pdf (conda) when learning_goals.md is staged
       - id: build-learning-goals-pdf
         name: Build learning_goals.pdf (conda)
-        entry: bash -c 'conda run -n BMLB2025_2026 ./scripts/build_learning_goals.sh'
+        entry: |
+          bash -c "conda run -n BMLB2025_2026 ./scripts/build_learning_goals.sh"
         language: system
         pass_filenames: false
         files: ^learning_goals\.md$
@@ -25,7 +26,8 @@ repos:
       # Fail if learning_goals.pdf changed but not added
       - id: fail-if-pdf-changed
         name: learning_goals.pdf must be added if changed
-        entry: bash -c 'git diff --quiet -- learning_goals.pdf || (echo "learning_goals.pdf updated. Run: git add learning_goals.pdf && re-commit." >&2; exit 1)'
+        entry: |
+          bash -c "git diff --quiet -- learning_goals.pdf || (echo 'learning_goals.pdf updated. Run: git add learning_goals.pdf && re-commit.' >&2; exit 1)"
         language: system
         pass_filenames: false
         stages: [pre-commit]
