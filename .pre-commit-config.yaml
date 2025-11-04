@@ -4,6 +4,9 @@ repos:
   - repo: local
     hooks:
       # Build student notebooks from *_Answers.ipynb
+      #! REMOVE DAY1 below once I have encased each answer in
+      #! <# answer> without the brackets above it and 
+      #! <# end answer> below it.
       - id: build-student-notebooks
         name: Build student notebooks from *_Answers.ipynb
         entry: Scripts/process_notebooks.py
