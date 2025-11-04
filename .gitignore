@@ -15,6 +15,9 @@ __pycache__/
 */.ipynb_checkpoints/*
 .ipynb_checkpoints
 
+# auto-generated notebook diff reports
+**/.practical_diff.md
+
 #not shared
 TODO.md
 *.pptx
