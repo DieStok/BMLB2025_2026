@@ -35,6 +35,10 @@ dependencies:
   - nbdev>=2.3.0
   - gitpython
 
+  # Automate markdown to pdf rendering
+  - pandoc
+  - tectonic
+
   # Pip-only packages (PyTorch)
   - pip:
       - torch
