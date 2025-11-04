@@ -15,9 +15,11 @@ fi
 echo "Building $OUT from $IN ..."
 # gfm reader + math (both $...$ and \( \) / \[ \ ])
 pandoc "$IN" \
-  --from=gfm+tex_math_dollars+tex_math_single_backslash \
+  --from=markdown+tex_math_dollars+tex_math_single_backslash \
   --pdf-engine=tectonic \
   -V geometry:margin=1in \
   -o "$OUT"
 
+
 echo "Built $OUT"
+
