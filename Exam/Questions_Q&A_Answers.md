@@ -219,3 +219,123 @@ Why it doesn't matter:
   is identical to using $C_{1/2}$ with learning rate $2\alpha$.
 
 The $\tfrac{1}{2}$ is often included so that $\frac{d}{d\hat y}\big[\tfrac{1}{2}(\hat y-y)^2\big]=(\hat y-y)$ (no extra 2). Whether you include it or not is a convention; adjust the learning rate accordingly.
+
+---
+
+**Question:**  
+When slides write $\theta^\top X$ but code uses `X @ theta`, is the first only for a single example while the second is for multiple examples?
+
+**Answer:**  
+Not exactly. Both are valid for multiple samples—the difference is just **orientation (row-vs-column convention)**.
+
+- **Row-as-samples convention (common in code):**  
+  $X \in \mathbb{R}^{m \times n}$ (m samples, n features), $\theta \in \mathbb{R}^{n \times 1}$.  
+  Linear logits:  
+  $$
+  z = X\,\theta \in \mathbb{R}^{m \times 1}.
+  $$
+  In Python, this is `X @ theta`.
+
+- **Columns-as-samples convention (common on some slides):**  
+  $X_{\text{cols}} \in \mathbb{R}^{n \times m}$, $\theta^\top \in \mathbb{R}^{1 \times n}$.  
+  Linear logits:  
+  $$
+  z^\top = \theta^\top X_{\text{cols}} \in \mathbb{R}^{1 \times m}
+  \quad\Longleftrightarrow\quad
+  z = \big(\theta^\top X_{\text{cols}}\big)^\top \in \mathbb{R}^{m \times 1}.
+  $$
+  
+Both formulations produce the **same numbers** when $X_{\text{cols}} = X^\top$. After the linear step, logistic regression applies the sigmoid elementwise: $\hat y = \sigma(z)$.
+Here's an example with some numbers just to be complete:
+
+Let
+$$
+X =
+\begin{bmatrix}
+1 & 2 \\
+3 & 4 \\
+5 & 6
+\end{bmatrix}
+\in \mathbb{R}^{3 \times 2},
+\qquad
+\theta =
+\begin{bmatrix}
+0.5 \\
+-1
+\end{bmatrix}
+\in \mathbb{R}^{2 \times 1}.
+$$
+
+**Convention A (rows = samples):**
+$$
+z = X\,\theta =
+\begin{bmatrix}
+1 & 2 \\
+3 & 4 \\
+5 & 6
+\end{bmatrix}
+\begin{bmatrix}
+0.5 \\
+-1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1\cdot 0.5 + 2\cdot (-1) \\
+3\cdot 0.5 + 4\cdot (-1) \\
+5\cdot 0.5 + 6\cdot (-1)
+\end{bmatrix}
+=
+\begin{bmatrix}
+-1.5 \\
+-2.5 \\
+-3.5
+\end{bmatrix}
+\in \mathbb{R}^{3 \times 1}.
+$$
+
+**Convention B (columns = samples):**
+$$
+X_{\text{cols}} = X^\top =
+\begin{bmatrix}
+1 & 3 & 5 \\
+2 & 4 & 6
+\end{bmatrix}
+\in \mathbb{R}^{2 \times 3},
+\qquad
+\theta^\top =
+\begin{bmatrix}
+0.5 & -1
+\end{bmatrix}
+\in \mathbb{R}^{1 \times 2}.
+$$
+
+Then
+$$
+z^\top = \theta^\top X_{\text{cols}} =
+\begin{bmatrix}
+0.5 & -1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 3 & 5 \\
+2 & 4 & 6
+\end{bmatrix}
+=
+\begin{bmatrix}
+-1.5 & -2.5 & -3.5
+\end{bmatrix}
+\in \mathbb{R}^{1 \times 3},
+$$
+and therefore
+$$
+z = 
+\begin{bmatrix}
+-1.5 \\
+-2.5 \\
+-3.5
+\end{bmatrix}
+\in \mathbb{R}^{3 \times 1},
+$$
+which matches the result from the first convention.
+
+---
+
