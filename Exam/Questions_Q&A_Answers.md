@@ -147,3 +147,22 @@ For *one weight*, that looks like one of the small arrows in the image below: on
 However, in reality, you are taking a step on this huge multidimensional cost function surface, using the only tools we have to do so (partial derivatives), hoping that by taking small steps while disregarding that parameters actually affect each other we can still reach a good-enough cost function minimum. See [here](https://losslandscape.com/) for a foray into trying to visualise these multidimensional neural network cost surfaces.
 
 
+**Question:**  
+
+What do you mean with the learning goal 'Explain what the 3D surface plot of the univariate linear regression cost function means'?
+
+**Answer:**  
+
+I just mean that you can explain what we covered in the [lectures on day 1](../Day1/Presentation/Day1_1_IntroductionUnivariateLinearRegressionCostFunctionGradientDescent_1.pdf): that actually the cost function depends on two parameters, the intercept and the slope ($\theta_0$ and $\theta_1$, or $b$ and $a$ if you think of $a x + b$), and so it is actually a surface in 3D space, like here:
+
+![3D surface plot cost function](./images_Q&A/cost_function_surface_example_Coursera.png)
+*Figure: Visualisation of how the cost function actually depends on two parameters, and the global minimum of the cost for this univariate regression is defined by two parameters.*
+
+Please note that this global minimum, when we look at how to minimise the cost (the mean-squared error), corresponds to the parameter values such that you get the optimal regression line as shown in the example below:
+
+$$
+y = \theta_1 x + \theta_0
+$$
+
+![univariate linear regression line of best fit](./images_Q&A/line_of_best_fit_univariate_regression.png)
+*Figure: Visualisation of the optimal parameters in data space. Each point $(x, y)$ has some cost (the squared distance to the regression line). The cost is minimal at certain parameter values $\theta_0$ and $\theta_1$.*
