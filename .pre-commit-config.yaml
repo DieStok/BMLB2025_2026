@@ -1,5 +1,4 @@
 # .pre-commit-config.yaml
-
 repos:
   - repo: local
     hooks:
@@ -9,28 +8,41 @@ repos:
       #! <# end answer> below it.
       - id: build-student-notebooks
         name: Build student notebooks from *_Answers.ipynb
-        entry: Scripts/process_notebooks.py
-        language: python
+        entry: bash -c "conda run -n BMLB2025_2026 python Scripts/process_notebooks.py"
+        language: system
         pass_filenames: true
-        files: '.*Day1*_Answers\.ipynb$'
-        stages: [commit]
+        files: '.*PracticalMaterialDay1_ShortPractical1_Answers\.ipynb$'
+        stages: [pre-commit]
         require_serial: true
 
       # Build learning_goals.pdf (conda) when learning_goals.md is staged
       - id: build-learning-goals-pdf
         name: Build learning_goals.pdf (conda)
         entry: |
-          bash -c "conda run -n BMLB2025_2026 ./scripts/build_learning_goals.sh"
+          bash -c "conda run -n BMLB2025_2026 ./Scripts/build_math_pdfs_from_markdown.sh learning_goals.md learning_goals.pdf"
         language: system
         pass_filenames: false
         files: ^learning_goals\.md$
         stages: [pre-commit]
 
-      # Fail if learning_goals.pdf changed but not added
-      - id: fail-if-pdf-changed
-        name: learning_goals.pdf must be added if changed
+      # Build Questions_Q&A_Answers.pdf (conda) when Questions_Q&A_Answers.md is staged
+      - id: build-questions-answers-pdf
+        name: Build Questions_Q&A_Answers.pdf (conda)
         entry: |
-          bash -c "git diff --quiet -- learning_goals.pdf || (echo 'learning_goals.pdf updated. Run: git add learning_goals.pdf && re-commit.' >&2; exit 1)"
+          bash -c "conda run -n BMLB2025_2026 ./Scripts/build_math_pdfs_from_markdown.sh 'Exam/Questions_Q&A_Answers.md' 'Exam/Questions_Q&A_Answers.pdf'"
+        language: system
+        pass_filenames: false
+        files: ^Exam/Questions_Q&A_Answers\.md$
+        stages: [pre-commit]
+
+      # Fail if any PDF changed but not added
+      - id: fail-if-pdf-changed
+        name: PDF must be added if changed
+        entry: >
+          bash -c '
+            git diff --quiet -- learning_goals.pdf || { echo "learning_goals.pdf updated. Run: git add learning_goals.pdf && re-commit." >&2; exit 1; }
+            git diff --quiet -- Exam/Questions_Q\&A_Answers.pdf || { echo "Questions_Q\&A_Answers.pdf updated. Run: git add Exam/Questions_Q\&A_Answers.pdf && re-commit." >&2; exit 1; }
+          '
         language: system
         pass_filenames: false
         stages: [pre-commit]

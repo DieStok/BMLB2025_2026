@@ -39,6 +39,7 @@ dependencies:
   - pandoc
   - tectonic
   - pre-commit
+  - nbformat
 
   # Pip-only packages (PyTorch)
   - pip:
