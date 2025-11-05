@@ -179,9 +179,11 @@ Is  $\tfrac{1}{2m}\sum(\hat y - y)^2$ meaningfully different from $\tfrac{1}{m}\
 
 **Answer:** No. They differ by a constant factor of $2$, which only scales the gradients. The minimum is in the same place. Notice that it just corresponds to $\frac{1}{2} \cdot \frac{1}{m} \cdot x^2$ versus $\frac{1}{m} \cdot x^2$. That difference just boils down to this:
 
-![univariate linear regression line of best fit](./images_Q&A/1_over_2m_versus_1_over_m.png)
-
-*Figure: I drew both $\frac{1}{2}x^2$ and $x^2$. You may notice that the minimum is in the same place.*
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./images_Q&A/1_over_2m_versus_1_over_m.png}
+    \caption{I drew both $\frac{1}{2}x^2$ and $x^2$. You may notice that the minimum is in the same place.}
+\end{figure}
 
 The minimum is the same, and we are only using this function to minimize the cost. So it does not matter (the final parameters you find will be the same), except that the gradients are twice as large if you don't use $\frac{1}{2}$ versus if you do. So you should adjust the learning rate accordingly. But that's a detail you're allowed to forget~$\smile$
 
