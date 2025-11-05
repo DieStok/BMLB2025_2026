@@ -142,10 +142,12 @@ $$
 For *one weight*, that looks like one of the small arrows in the image below: one tiny step closer towards an optimum.
 
 ![Visualisation of how the cost function may depend on a certain weight. In reality, we don't know the parabola, we only calculate the gradient at each point, and can take a small step so we move down the gradient, thereby decreasing the cost a little](./images_Q&A/small_gradient_descent_step.png)
+
 *Figure: Visualisation of how the cost function may depend on a certain weight. In reality, we don't know the parabola, we only calculate the gradient at each point, and can take a small step so we move down the gradient, thereby decreasing the cost a little.*
 
 However, in reality, you are taking a step on this huge multidimensional cost function surface, using the only tools we have to do so (partial derivatives), hoping that by taking small steps while disregarding that parameters actually affect each other we can still reach a good-enough cost function minimum. See [here](https://losslandscape.com/) for a foray into trying to visualise these multidimensional neural network cost surfaces.
 
+---
 
 **Question:**  
 
@@ -156,6 +158,7 @@ What do you mean with the learning goal 'Explain what the 3D surface plot of the
 I just mean that you can explain what we covered in the [lectures on day 1](../Day1/Presentation/Day1_1_IntroductionUnivariateLinearRegressionCostFunctionGradientDescent_1.pdf): that actually the cost function depends on two parameters, the intercept and the slope ($\theta_0$ and $\theta_1$, or $b$ and $a$ if you think of $a x + b$), and so it is actually a surface in 3D space, like here:
 
 ![3D surface plot cost function](./images_Q&A/cost_function_surface_example_Coursera.png)
+
 *Figure: Visualisation of how the cost function actually depends on two parameters, and the global minimum of the cost for this univariate regression is defined by two parameters.*
 
 Please note that this global minimum, when we look at how to minimise the cost (the mean-squared error), corresponds to the parameter values such that you get the optimal regression line as shown in the example below:
@@ -164,5 +167,53 @@ $$
 y = \theta_1 x + \theta_0
 $$
 
+
 ![univariate linear regression line of best fit](./images_Q&A/line_of_best_fit_univariate_regression.png)
 *Figure: Visualisation of the optimal parameters in data space. Each point $(x, y)$ has some cost (the squared distance to the regression line). The cost is minimal at certain parameter values $\theta_0$ and $\theta_1$.*
+
+---
+
+**Question:**  
+
+Is  $\tfrac{1}{2m}\sum(\hat y - y)^2$ meaningfully different from $\tfrac{1}{m}\sum(\hat y - y)^2$?
+
+**Answer:** No. They differ by a constant factor of $2$, which only scales the gradients. The minimum is in the same place. Notice that it just corresponds to $\frac{1}{2} \cdot \frac{1}{m} \cdot x^2$ versus $\frac{1}{m} \cdot x^2$. That difference just boils down to this:
+
+![univariate linear regression line of best fit](./images_Q&A/1_over_2m_versus_1_over_m.png)
+
+*Figure: I drew both $\frac{1}{2}x^2$ and $x^2$. You may notice that the minimum is in the same place.*
+
+The minimum is the same, and we are only using this function to minimize the cost. So it does not matter (the final parameters you find will be the same), except that the gradients are twice as large if you don't use $\frac{1}{2}$ versus if you do. So you should adjust the learning rate accordingly. But that's a detail you're allowed to forget~$\smile$
+
+Here's both equations:
+$$
+C_{1/2} \;=\; \frac{1}{2m}\sum_{i=1}^m (\hat y_i - y_i)^2,
+\qquad
+C_{1} \;=\; \frac{1}{m}\sum_{i=1}^m (\hat y_i - y_i)^2
+\;=\; 2\,C_{1/2}.
+$$
+
+We can calculate the gradients with respect to predictions:
+$$
+\frac{\partial C_{1/2}}{\partial \hat y_i} \;=\; \frac{1}{m}(\hat y_i - y_i),
+\qquad
+\frac{\partial C_{1}}{\partial \hat y_i} \;=\; \frac{2}{m}(\hat y_i - y_i)
+\;=\; 2\,\frac{\partial C_{1/2}}{\partial \hat y_i}.
+$$
+
+By the chain rule, all parameter derivatives scale the same way:
+$$
+\frac{\partial C_{1}}{\partial \theta} \;=\; 2\,\frac{\partial C_{1/2}}{\partial \theta}.
+$$
+
+Why it doesn't matter:
+
+- **Same minimum:** For any $c>0$, $\arg\min_\theta C(\theta) = \arg\min_\theta c\,C(\theta)$. So, $\frac{\partial C}{\partial \theta}=0 \iff \frac{\partial (cC)}{\partial \theta}=0$.
+- **Just a rescale of the gradients and thereby of the learning rate:** Gradient descent with \(C_{1}\)
+  $$
+  \theta_{t+1} \;=\; \theta_t - \alpha\,\frac{\partial C_{1}}{\partial \theta}(\theta_t)
+  \;=\; \theta_t - (2\alpha)\,\frac{\partial C_{1/2}}{\partial \theta}(\theta_t)
+  $$
+  is identical to using $C_{1/2}$ with learning rate $2\alpha$.
+
+The $\tfrac{1}{2}$ is often included so that $\frac{d}{d\hat y}\big[\tfrac{1}{2}(\hat y-y)^2\big]=(\hat y-y)$ (no extra 2). Whether you include it or not is a convention; adjust the learning rate accordingly.
